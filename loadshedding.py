@@ -45,7 +45,7 @@ def main():
     current_schedule = status()
     
     st.json(current_schedule)
-    current_schedule = json.load(current_schedule)
+    current_schedule = json.dump(current_schedule)
     bools = ['No','Yes']
     choice = st.selectbox('Choose CPT or Not',bools)
     if choice == 'Yes':
