@@ -41,7 +41,7 @@ def area_search_text(text):
 
 def main():
     st.title('Loadshedding application to check current schedule for a location')
-    selection = st.text_input('Please enter your area and hit enter:')
+    # selection = st.text_input('Please enter your area and hit enter:')
     current_schedule = status()
     bools = ['No','Yes']
     choice = st.selectbox('Choose CPT or Not',bools)
