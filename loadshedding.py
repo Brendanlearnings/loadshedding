@@ -1,5 +1,14 @@
 import requests
 import json 
+import streamlit as st
+from streamlit_extras.switch_page_button import switch_page
+import datetime
+
+
+if 'user' not in st.session_state:
+    st.session_state.user = random_id_gen()
+    now = datetime.now()
+    st.session_state.timestamp = now.strftime('%Y-%m-%d %H:%M:%S.%f %z')
 
 # Get token from json object 
 with open('keys.json','r') as file:
@@ -35,8 +44,27 @@ def area_search_text(text):
     status_obj = response.text
     return json.dumps(status_obj)
 
-def id_schedule(options):
+def main():
+    st.title('Loadshedding application to check current schedule for a location')
+    st.text_input('Please enter your area:')
+
     
 
 
 
+# Set up the directory for pages in app
+pages = {
+    "Information": details,
+    "Contact details": contact_deets,
+    "Merchandise": merch,
+    "Events": events,
+    "Additional": choices,
+    "Checkout": checkout
+}
+
+
+# Create a menu with the page names
+selection = st.sidebar.radio("Navigate to:", list(pages.keys()))
+
+# Display the selected page with its corresponding function
+pages[selection]()
