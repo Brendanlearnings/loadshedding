@@ -37,7 +37,7 @@ def area_search_text(text):
     headers = {"token": f"{token}"}
     response = requests.request("GET", url, data=payload, headers=headers)
     status_obj = response.text
-    return json.dumps(status_obj)
+    return status_obj
 
 def main():
     st.title('Loadshedding application to check current schedule for a location')
@@ -45,7 +45,7 @@ def main():
     current_schedule = status()
     
     st.json(current_schedule)
-    current_schedule = json.dumps(current_schedule)
+    current_schedule = json.load(current_schedule)
     bools = ['No','Yes']
     choice = st.selectbox('Choose CPT or Not',bools)
     if choice == 'Yes':
