@@ -43,6 +43,7 @@ def main():
     st.title('Loadshedding application to check current schedule for a location')
     # selection = st.text_input('Please enter your area and hit enter:')
     current_schedule = status()
+    st.json(current_schedule)
     bools = ['No','Yes']
     choice = st.selectbox('Choose CPT or Not',bools)
     if choice == 'Yes':
