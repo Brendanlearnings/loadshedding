@@ -44,12 +44,13 @@ def main():
     selection = st.text_input('Please enter your area and hit enter:')
     current_schedule = status()
     bools = ['No','Yes']
-    st.selectbox('Choose CPT or Not',bools)
-    current_schedule = current_schedule[]
-    st.json(current_schedule)
-
-def choiceLocation(location):
-    
+    choice = st.selectbox('Choose CPT or Not',bools)
+    if choice == 'Yes':
+        stage = current_schedule["status"]["capetown"]["stage"]
+        st.write(stage)
+    else:
+        stage = current_schedule["status"]["eskom"]["stage"]
+        st.write(stage)
 
 
     
