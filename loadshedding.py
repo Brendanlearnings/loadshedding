@@ -4,11 +4,6 @@ import streamlit as st
 import datetime
 
 
-if 'user' not in st.session_state:
-    st.session_state.user = random_id_gen()
-    now = datetime.now()
-    st.session_state.timestamp = now.strftime('%Y-%m-%d %H:%M:%S.%f %z')
-
 # Get token from json object 
 with open('keys.json','r') as file:
     reader = json.load(file)
