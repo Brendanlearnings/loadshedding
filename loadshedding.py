@@ -33,7 +33,8 @@ def status():
     headers = {"token": f"{token}"}
     response = requests.request("GET", url, data=payload, headers=headers)
     status_obj = response.text
-    json_file_handler(1,'current_stage',status_obj)
+    return json.dumps(status_obj)
+    # json_file_handler(1,'current_stage',status_obj)
 
 
 def area_search_text(text):
@@ -46,7 +47,10 @@ def area_search_text(text):
 
 def main():
     st.title('Loadshedding application to check current schedule for a location')
-    st.text_input('Please enter your area:')
+    selection = st.text_input('Please enter your area and hit enter:')
+    current_schedule = status()
+    st.json(current_schedule)
+
 
     
 
@@ -54,12 +58,7 @@ def main():
 
 # Set up the directory for pages in app
 pages = {
-    "Information": details,
-    "Contact details": contact_deets,
-    "Merchandise": merch,
-    "Events": events,
-    "Additional": choices,
-    "Checkout": checkout
+    "Main": main()
 }
 
 
