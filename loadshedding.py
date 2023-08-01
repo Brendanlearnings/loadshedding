@@ -52,8 +52,8 @@ def main():
     
     
 
-    st.text(f'The current loadshedding stage for Cape Town = {current_schedule[0]["status"]["capetown"]["stage"]}')
-    st.text(f'The current loadshedding stage for Cape Town = {current_schedule[0]["status"]["eskom"]["stage"]}')
+    st.text(f'The current loadshedding stage for Cape Town = {current_schedule["status"]["capetown"]["stage"]}')
+    st.text(f'The current loadshedding stage for Cape Town = {current_schedule["status"]["eskom"]["stage"]}')
     # current_schedule = json.dump(current_schedule)
     bools = ['No','Yes']
     choice = st.selectbox('Does your area fall within the City of Cape Town?',bools)
