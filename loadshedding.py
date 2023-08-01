@@ -51,7 +51,7 @@ st.write()
 col1.metric('Cape Town Stage',current_schedule["status"]["capetown"]["stage"])
 col2.metric('Eskom Stage',current_schedule["status"]["eskom"]["stage"])
 
-area = st.text_input('Please type the area you are looking for and hit enter.')
+area = st.text_input('Please type the area you are looking for and hit enter.',value='')
 multiple_areas = area_search_text(area)
 multiple_areas = json.loads(multiple_areas)
 st.json(multiple_areas)
