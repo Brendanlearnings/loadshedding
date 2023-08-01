@@ -26,7 +26,7 @@ def status():
     payload = ""
     headers = {"token": f"{token}"}
     response = requests.request("GET", url, data=payload, headers=headers)
-    status_obj = response.text
+    status_obj = response.text.json()
     return status_obj
     # json_file_handler(1,'current_stage',status_obj)
 
@@ -36,7 +36,7 @@ def area_search_text(text):
     payload = ""
     headers = {"token": f"{token}"}
     response = requests.request("GET", url, data=payload, headers=headers)
-    status_obj = response.text
+    status_obj = response.text.json()
     return status_obj
 
 def main():
@@ -45,6 +45,8 @@ def main():
     current_schedule = status()
     
     st.json(current_schedule)
+    st.text(f'The current loadshedding stage for Cape Town = {current_schedule["status"]["capetown"]["stage"]}')
+    st.text(f'The current loadshedding stage for Cape Town = {current_schedule["status"]["eskom"]["stage"]}')
     # current_schedule = json.dump(current_schedule)
     bools = ['No','Yes']
     choice = st.selectbox('Does your area fall within the City of Cape Town?',bools)
