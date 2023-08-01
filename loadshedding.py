@@ -47,7 +47,16 @@ current_schedule = status()
 # st.write(type(current_schedule))
 current_schedule = json.loads(current_schedule)
 col1, col2 = st.columns(2)
+st.write()
 col1.metric('Cape Town Stage',current_schedule["status"]["capetown"]["stage"])
 col2.metric('Eskom Stage',current_schedule["status"]["eskom"]["stage"])
+
+area = st.text_input('Please type the area you are looking for and hit enter.')
+multiple_areas = area_search_text(area)
+multiple_areas = json.loads(multiple_areas)
+st.json(multiple_areas)
+
+# st.selectbox('Please pick the correct area',)
+
 
 
