@@ -46,6 +46,8 @@ def main():
     # st.write(type(current_schedule))
     st.json(current_schedule)
     st.text(type(current_schedule))
+    st.text(current_schedule)
+    
     
 
     st.text(f'The current loadshedding stage for Cape Town = {current_schedule[0]["status"]["capetown"]["stage"]}')
