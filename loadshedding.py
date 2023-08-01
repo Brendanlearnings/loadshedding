@@ -47,6 +47,8 @@ def main():
     st.json(current_schedule)
     st.text(type(current_schedule))
     st.text(current_schedule)
+
+    current_schedule = json.loads(current_schedule)
     
     
 
