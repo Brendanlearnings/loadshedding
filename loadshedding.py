@@ -26,8 +26,8 @@ def status():
     payload = ""
     headers = {"token": f"{token}"}
     response = requests.request("GET", url, data=payload, headers=headers)
-    status_obj = response.json
-    return status_obj
+    status_obj = response.text
+    return json.dumps(status_obj)
     # json_file_handler(1,'current_stage',status_obj)
 
 
@@ -36,7 +36,7 @@ def area_search_text(text):
     payload = ""
     headers = {"token": f"{token}"}
     response = requests.request("GET", url, data=payload, headers=headers)
-    status_obj = response.json
+    status_obj = response.text
     return status_obj
 
 def main():
