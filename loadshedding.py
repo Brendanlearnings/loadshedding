@@ -44,6 +44,7 @@ def main():
     # selection = st.text_input('Please enter your area and hit enter:')
     current_schedule = status()
     # st.write(type(current_schedule))
+    current_schedule = json.loads(current_schedule)
     col1, col2 = st.columns(2)
     col1.metric('Cape Town Stage',current_schedule["status"]["capetown"]["stage"])
     col2.metric('Eskom Stage',current_schedule["status"]["eskom"]["stage"])
