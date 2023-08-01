@@ -39,30 +39,15 @@ def area_search_text(text):
     status_obj = response.text
     return status_obj
 
-def main():
-    st.title('Loadshedding application to check current schedule for a location')
-    # selection = st.text_input('Please enter your area and hit enter:')
-    current_schedule = status()
-    # st.write(type(current_schedule))
-    current_schedule = json.loads(current_schedule)
-    col1, col2 = st.columns(2)
-    col1.metric('Cape Town Stage',current_schedule["status"]["capetown"]["stage"])
-    col2.metric('Eskom Stage',current_schedule["status"]["eskom"]["stage"])
+
+### Front end elements
+st.title('Loadshedding application to check current schedule for a location')
+# selection = st.text_input('Please enter your area and hit enter:')
+current_schedule = status()
+# st.write(type(current_schedule))
+current_schedule = json.loads(current_schedule)
+col1, col2 = st.columns(2)
+col1.metric('Cape Town Stage',current_schedule["status"]["capetown"]["stage"])
+col2.metric('Eskom Stage',current_schedule["status"]["eskom"]["stage"])
 
 
-
-    
-
-
-
-# Set up the directory for pages in app
-pages = {
-    "Main": main()
-}
-
-
-# Create a menu with the page names
-selection = st.sidebar.radio("Navigate to:", list(pages.keys()))
-
-# Display the selected page with its corresponding function
-pages[selection]()
