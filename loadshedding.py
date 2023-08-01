@@ -44,26 +44,10 @@ def main():
     # selection = st.text_input('Please enter your area and hit enter:')
     current_schedule = status()
     # st.write(type(current_schedule))
-    st.json(current_schedule)
-    st.text(type(current_schedule))
-    st.text(current_schedule)
+    col1, col2 = st.columns(2)
+    col1.metric('Cape Town Stage',current_schedule["status"]["capetown"]["stage"])
+    col2.metric('Eskom Stage',current_schedule["status"]["eskom"]["stage"])
 
-    current_schedule = json.loads(current_schedule)
-    
-    
-
-    st.text(f'The current loadshedding stage for Cape Town = {current_schedule["status"]["capetown"]["stage"]}')
-    st.text(f'The current loadshedding stage for Cape Town = {current_schedule["status"]["eskom"]["stage"]}')
-    # current_schedule = json.dump(current_schedule)
-    bools = ['No','Yes']
-    choice = st.selectbox('Does your area fall within the City of Cape Town?',bools)
-    if choice == 'Yes':
-        
-        stage = current_schedule["status"]["capetown"]["stage"]
-        st.write(stage)
-    else:
-        stage = current_schedule["status"]["eskom"]["stage"]
-        st.write(stage)
 
 
     
