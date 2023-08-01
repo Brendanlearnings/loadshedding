@@ -56,6 +56,7 @@ area = st.text_input('Please type the area you are looking for and hit enter.',v
 
 multiple_areas = area_search_text(area)
 multiple_areas = json.loads(multiple_areas)
+st.json(multiple_areas)
 areas = [i for i in multiple_areas["areas"]["name"]]
 
 
