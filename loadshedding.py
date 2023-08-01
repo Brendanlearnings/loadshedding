@@ -27,7 +27,7 @@ def status():
     headers = {"token": f"{token}"}
     response = requests.request("GET", url, data=payload, headers=headers)
     status_obj = response.text
-    return json.dumps(status_obj)
+    return status_obj
     # json_file_handler(1,'current_stage',status_obj)
 
 
